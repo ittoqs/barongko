@@ -1,0 +1,372 @@
+#mobile-os {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: url('/wallpaper.webp') no-repeat center center;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Android Status Bar */
+.android-status-bar {
+    height: 26px;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 14px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 106;
+}
+.android-status-bar .right-icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Android Backdrop */
+.android-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 104;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.android-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Android Notification Pull-down */
+.android-notification-panel {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    max-height: 500px;
+    background: #1e1e1e;
+    color: white;
+    z-index: 105;
+    transition: top 0.3s cubic-bezier(0.2, 0, 0, 1);
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+}
+.android-notification-panel.active { top: 0; }
+
+.android-quick-settings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-items: center;
+}
+.qs-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #b0b0b0;
+}
+.qs-tile .tile-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: white;
+    transition: background 0.2s;
+}
+.qs-tile.active .tile-icon {
+    background: #a8c7fa;
+    color: #041e49;
+}
+
+/* Notifications List */
+.android-notifications-list {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 5px 0;
+}
+.notification-card {
+    background: #2c2c2c;
+    border-radius: 16px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.notif-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #aaa;
+}
+.notif-time {
+    margin-left: auto;
+}
+.notif-body {
+    font-size: 14px;
+}
+.notif-body strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #fff;
+}
+.notif-body p {
+    margin: 0;
+    color: #ddd;
+    line-height: 1.3;
+}
+
+/* Android Home Screen Container */
+.android-screen-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px 20px 20px;
+    position: relative;
+    min-height: 0; /* Fix flexbox scrolling */
+    box-sizing: border-box;
+}
+
+/* Google Search Widget Simulation */
+.android-search-widget {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 28px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    color: #5f6368;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+}
+
+/* Scroll Area for Apps */
+.android-app-scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    min-height: 0; /* Fix flexbox scrolling */
+    /* Hide scrollbar for a cleaner look */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+.android-app-scroll-area::-webkit-scrollbar {
+    display: none;
+}
+
+/* Android App Grid Grid */
+.android-app-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 24px;
+    column-gap: 12px;
+}
+
+.android-app-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+.android-app-item .app-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 22%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+    transition: transform 0.2s;
+}
+.android-app-item:active .app-icon {
+    transform: scale(0.9);
+}
+.android-app-item span {
+    font-size: 12px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    font-weight: 500;
+}
+
+/* Android Bottom Nav Bar */
+.android-nav-bar {
+    height: 52px;
+    background: #000000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+    flex-shrink: 0;
+}
+.android-nav-btn {
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+.android-nav-btn:active { opacity: 1; }
+
+/* Swipe handle for drawer indicators */
+.panel-handle {
+    width: 48px;
+    height: 4px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 2px;
+    margin: 15px auto 0 auto;
+    cursor: pointer;
+}
+
+/* Home Screen Widgets */
+.android-home-widgets {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Analog Clock */
+.android-analog-clock {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+.clock-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+.hour-hand {
+    width: 6px;
+    height: 30%;
+    margin-left: -3px;
+    background: #e0e0e0;
+}
+.min-hand {
+    width: 4px;
+    height: 40%;
+    margin-left: -2px;
+    background: #ffffff;
+}
+.second-hand {
+    width: 2px;
+    height: 45%;
+    margin-left: -1px;
+    background: #ff3b30;
+}
+.clock-center {
+    width: 14px;
+    height: 14px;
+    background: #ff3b30;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+/* Android Dock */
+.android-dock {
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 10px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.dock-item {
+    text-decoration: none;
+    cursor: pointer;
+}
+.dock-item .app-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 24px;
+    margin: 0;
+    border-radius: 50% !important; /* Make dock icons perfectly round for variety */
+    flex-shrink: 0;
+}
+
+.app-drawer-btn .app-icon {
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 28px !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* App Drawer Overlay */
+.android-app-drawer {
+    position: absolute;
+    top: 100%; /* Hidden below */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    transition: top 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.android-app-drawer.open {
+    top: 0;
+}
+.drawer-handle {
+    width: 50px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 3px;
+    margin: 20px auto 10px auto;
+    cursor: pointer;
+}

@@ -1,0 +1,90 @@
+export const apps = [
+  // Existing Apps
+  { name: 'GitHub', url: 'https://github.com', icon: 'fab fa-github', bgColor: '#24292e', color: 'white' },
+  { name: 'GitLab', url: 'https://gitlab.com', icon: 'fab fa-gitlab', bgColor: '#e24329', color: 'white' },
+  { name: 'Flathub', url: 'https://flathub.org', icon: 'fas fa-box-open', bgColor: '#4a90e2', color: 'white' },
+  { name: 'WhatsApp', url: 'https://web.whatsapp.com', icon: 'fab fa-whatsapp', bgColor: '#25d366', color: 'white' },
+  { name: 'Instagram', url: 'https://instagram.com', icon: 'fab fa-instagram', bgColor: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)', color: 'white' },
+  { name: 'LinkedIn', url: 'https://linkedin.com', icon: 'fab fa-linkedin', bgColor: '#0077b5', color: 'white' },
+  { name: 'VS Code', url: 'https://vscode.dev', icon: 'fas fa-code', bgColor: '#007acc', color: 'white' },
+  { name: 'Spotify', url: 'https://spotify.com', icon: 'fab fa-spotify', bgColor: '#1ed760', color: 'white' },
+  { name: 'Facebook', url: 'https://facebook.com', icon: 'fab fa-facebook-f', bgColor: '#1877f2', color: 'white' },
+  { name: 'X', url: 'https://twitter.com', icon: 'fab fa-x-twitter', bgColor: '#000000', color: 'white' },
+  { name: 'SnapStore', url: 'https://snapcraft.io/store', icon: 'fas fa-store', bgColor: '#e95420', color: 'white' },
+  
+  // AI & Web Additions
+  { name: 'Ollama', url: 'https://ollama.com', icon: 'fas fa-brain', bgColor: '#ffffff', color: '#000' },
+  { name: 'Jan', url: 'https://jan.ai/', icon: 'fas fa-user-astronaut', bgColor: '#0f172a', color: 'white' },
+  { name: 'Llama.app', url: 'https://llama.app/', icon: 'fas fa-robot', bgColor: '#6366f1', color: 'white' },
+  { name: 'Ning', url: 'https://ning.web.id/', icon: 'fas fa-globe', bgColor: '#ec4899', color: 'white' },
+  { name: 'Anreguru', url: 'https://anreguru.vercel.app/', icon: 'fas fa-graduation-cap', bgColor: '#10b981', color: 'white' },
+  { name: 'Bitbucket', url: 'https://bitbucket.org', icon: 'fab fa-bitbucket', bgColor: '#0052cc', color: 'white' },
+  { name: 'Netlify', url: 'https://netlify.com', icon: 'fas fa-bolt', bgColor: '#00c7b7', color: 'white' },
+  { name: 'Vercel', url: 'https://vercel.com', icon: 'fas fa-caret-up', bgColor: '#000000', color: 'white' },
+  { name: 'Kiro.dev', url: 'https://kiro.dev', icon: 'fas fa-terminal', bgColor: '#2d3748', color: 'white' },
+  { name: 'Qwen', url: 'https://qwenlm.github.io/', icon: 'fas fa-microchip', bgColor: '#4f46e5', color: 'white' },
+  { name: 'Hugging Face', url: 'https://huggingface.co', icon: 'fas fa-smile-beam', bgColor: '#ffd21e', color: '#000' },
+  { name: 'DeepSeek', url: 'https://deepseek.com', icon: 'fas fa-search-plus', bgColor: '#2563eb', color: 'white' },
+  { name: 'Mistral', url: 'https://mistral.ai', icon: 'fas fa-wind', bgColor: '#f59e0b', color: 'white' },
+  
+  // Existing Open Source / Web Dev
+  { name: 'Docker', url: 'https://docker.com', icon: 'fab fa-docker', bgColor: '#2496ed', color: 'white' },
+  { name: 'Vue.js', url: 'https://vuejs.org', icon: 'fab fa-vuejs', bgColor: '#4fc08d', color: 'white' },
+  { name: 'React', url: 'https://react.dev', icon: 'fab fa-react', bgColor: '#61dafb', color: '#000' },
+  { name: 'Python', url: 'https://python.org', icon: 'fab fa-python', bgColor: '#3776ab', color: 'white' },
+  { name: 'Linux', url: 'https://kernel.org', icon: 'fab fa-linux', bgColor: '#fcc624', color: '#000' },
+  { name: 'Figma', url: 'https://figma.com', icon: 'fab fa-figma', bgColor: '#f24e1e', color: 'white' },
+
+  // New Requests
+  { name: 'Podman', url: 'https://podman.io', icon: 'fas fa-box', bgColor: '#892ca0', color: 'white' },
+  { name: 'C Language', url: 'https://www.c-language.org/', icon: 'fab fa-cuttlefish', bgColor: '#283593', color: 'white' },
+  { name: 'C++', url: 'https://isocpp.org/', icon: 'fas fa-code', bgColor: '#00599C', color: 'white' },
+  { name: 'Antigravity', url: 'https://github.com/google/antigravity', icon: 'fas fa-space-shuttle', bgColor: '#ff4081', color: 'white' },
+  { name: 'Rust', url: 'https://rust-lang.org', icon: 'fab fa-rust', bgColor: '#000000', color: '#f74c00' },
+  { name: 'Go', url: 'https://go.dev', icon: 'fab fa-golang', bgColor: '#00ADD8', color: 'white' },
+
+  // Added Programming Languages
+  { name: 'Java', url: 'https://java.com', icon: 'fab fa-java', bgColor: '#f8981d', color: 'white' },
+  { name: 'PHP', url: 'https://php.net', icon: 'fab fa-php', bgColor: '#777bb3', color: 'white' },
+  { name: 'Ruby', url: 'https://ruby-lang.org', icon: 'fas fa-gem', bgColor: '#cc342d', color: 'white' },
+  { name: 'Swift', url: 'https://swift.org', icon: 'fab fa-swift', bgColor: '#f05138', color: 'white' },
+  { name: 'Kotlin', url: 'https://kotlinlang.org', icon: 'fas fa-code', bgColor: '#7f52ff', color: 'white' },
+  { name: 'Dart', url: 'https://dart.dev', icon: 'fas fa-location-arrow', bgColor: '#0175c2', color: 'white' },
+  { name: 'R Lang', url: 'https://r-project.org', icon: 'fas fa-chart-bar', bgColor: '#276dc3', color: 'white' },
+  { name: 'Perl', url: 'https://perl.org', icon: 'fas fa-code', bgColor: '#39457e', color: 'white' },
+
+  // Added IDEs & Tools
+  { name: 'Android Studio', url: 'https://developer.android.com/studio', icon: 'fab fa-android', bgColor: '#3ddc84', color: '#000' },
+  { name: 'IntelliJ IDEA', url: 'https://jetbrains.com/idea', icon: 'fas fa-code', bgColor: '#000000', color: '#ff318c' },
+  { name: 'Sublime Text', url: 'https://sublimetext.com', icon: 'fas fa-comment-alt', bgColor: '#474747', color: '#ff9800' },
+  { name: 'Neovim', url: 'https://neovim.io', icon: 'fas fa-terminal', bgColor: '#57A143', color: 'white' },
+  { name: 'Emacs', url: 'https://gnu.org/software/emacs', icon: 'fas fa-code', bgColor: '#7F5AB6', color: 'white' },
+  { name: 'Unity', url: 'https://unity.com', icon: 'fab fa-unity', bgColor: '#000000', color: 'white' },
+  { name: 'Flutter', url: 'https://flutter.dev', icon: 'fas fa-feather', bgColor: '#02569b', color: 'white' },
+  { name: 'Jupyter', url: 'https://jupyter.org', icon: 'fas fa-book', bgColor: '#F37626', color: 'white' },
+  { name: 'Postman', url: 'https://postman.com', icon: 'fas fa-paper-plane', bgColor: '#FF6C37', color: 'white' },
+  { name: 'Insomnia', url: 'https://insomnia.rest', icon: 'fas fa-moon', bgColor: '#5849BE', color: 'white' },
+  { name: 'Jenkins', url: 'https://jenkins.io', icon: 'fas fa-user-tie', bgColor: '#D33833', color: 'white' },
+  { name: 'AWS', url: 'https://aws.amazon.com', icon: 'fab fa-aws', bgColor: '#FF9900', color: '#232F3E' },
+
+  // Added Databases
+  { name: 'MySQL', url: 'https://mysql.com', icon: 'fas fa-database', bgColor: '#4479A1', color: 'white' },
+  { name: 'PostgreSQL', url: 'https://postgresql.org', icon: 'fas fa-database', bgColor: '#336791', color: 'white' },
+  { name: 'MongoDB', url: 'https://mongodb.com', icon: 'fab fa-envira', bgColor: '#47A248', color: 'white' },
+  { name: 'Redis', url: 'https://redis.io', icon: 'fas fa-database', bgColor: '#DC382D', color: 'white' },
+  { name: 'SQLite', url: 'https://sqlite.org', icon: 'fas fa-database', bgColor: '#003B57', color: 'white' },
+  { name: 'WordPress', url: 'https://wordpress.org', icon: 'fab fa-wordpress', bgColor: '#21759b', color: 'white' },
+
+  // Added Linux Distributions
+  { name: 'Ubuntu', url: 'https://ubuntu.com', icon: 'fab fa-ubuntu', bgColor: '#E95420', color: 'white' },
+  { name: 'Debian', url: 'https://debian.org', icon: 'fab fa-linux', bgColor: '#A80030', color: 'white' },
+  { name: 'Fedora', url: 'https://fedoraproject.org', icon: 'fab fa-fedora', bgColor: '#294172', color: 'white' },
+  { name: 'Arch Linux', url: 'https://archlinux.org', icon: 'fas fa-linux', bgColor: '#1793D1', color: 'white' },
+  { name: 'Kali Linux', url: 'https://kali.org', icon: 'fas fa-dragon', bgColor: '#557C94', color: 'white' },
+  { name: 'CentOS', url: 'https://centos.org', icon: 'fab fa-centos', bgColor: '#262577', color: 'white' },
+  { name: 'Alpine Linux', url: 'https://alpinelinux.org', icon: 'fas fa-mountain', bgColor: '#0D597F', color: 'white' },
+  { name: 'Linux Mint', url: 'https://linuxmint.com', icon: 'fab fa-linux', bgColor: '#87CF3E', color: 'white' },
+  { name: 'openSUSE', url: 'https://opensuse.org', icon: 'fab fa-suse', bgColor: '#73BA25', color: 'white' },
+  { name: 'Red Hat', url: 'https://redhat.com', icon: 'fab fa-redhat', bgColor: '#EE0000', color: 'white' },
+  { name: 'Podman Desktop', url: 'https://podman-desktop.io', icon: 'fas fa-desktop', bgColor: '#892ca0', color: 'white' },
+];

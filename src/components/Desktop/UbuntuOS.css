@@ -1,0 +1,384 @@
+#ubuntu-os {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: url('/wallpaper.webp') no-repeat center center;
+    background-size: cover;
+    font-family: 'Ubuntu', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top Bar */
+.ubuntu-top-bar {
+    height: 32px;
+    background: rgba(0, 0, 0, 0.85);
+    color: #e6e6e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px;
+    font-size: 14px;
+    z-index: 100;
+}
+
+.ubuntu-top-bar .left, .ubuntu-top-bar .right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.activities-btn {
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: background 0.2s, color 0.2s;
+}
+.activities-btn:hover, .activities-btn.active {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.ubuntu-top-bar .center-clock {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: background 0.2s;
+}
+.ubuntu-top-bar .center-clock:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.ubuntu-top-bar .system-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: background 0.2s;
+}
+.ubuntu-top-bar .system-status:hover, .ubuntu-top-bar .system-status.active {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Ubuntu Dropdown Menu (GNOME Style) */
+.ubuntu-dropdown {
+    position: absolute;
+    top: 40px;
+    right: 12px;
+    width: 280px;
+    background: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    padding: 12px 0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    display: none;
+    flex-direction: column;
+    z-index: 101;
+    font-size: 14px;
+}
+.ubuntu-dropdown.active { display: flex; }
+
+.ubuntu-dropdown-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 16px;
+}
+.ubuntu-slider-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.ubuntu-slider-container input {
+    flex: 1;
+    accent-color: #e95420;
+    height: 4px;
+}
+
+.ubuntu-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 12px 0;
+}
+
+.ubuntu-dropdown-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background 0.2s;
+}
+.ubuntu-dropdown-item:hover { background: rgba(255, 255, 255, 0.05); }
+
+.item-icon-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.item-icon-circle.active {
+    background: #e95420;
+}
+.item-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.item-text span {
+    font-weight: 500;
+}
+.chevron {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.ubuntu-dropdown-footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 16px;
+}
+.footer-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.footer-btn:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* Left Launcher (Dock) */
+.ubuntu-dock {
+    position: absolute;
+    left: 0;
+    top: 32px;
+    bottom: 0;
+    width: 64px;
+    background: rgba(16, 16, 16, 0.65);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    gap: 12px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    z-index: 90;
+}
+
+.dock-item {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    position: relative;
+    text-decoration: none;
+}
+
+.dock-item:hover {
+    transform: scale(1.15);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Tooltip App Name */
+.dock-item::after {
+    content: attr(data-name);
+    position: absolute;
+    left: 70px;
+    background: rgba(30, 30, 30, 0.95);
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 13px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.dock-item:hover::after { opacity: 1; }
+
+/* App Grid Trigger di bagian bawah Dock */
+.dock-item.show-apps {
+    margin-top: auto;
+    background: rgba(255,255,255,0.05);
+}
+
+/* GNOME Activities Overview Overlay */
+.gnome-overlay {
+    position: absolute;
+    top: 32px;
+    left: 64px;
+    right: 0;
+    bottom: 0;
+    background: rgba(30, 30, 30, 0.85);
+    backdrop-filter: blur(20px);
+    z-index: 95;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+.gnome-overlay.active { display: flex; }
+
+.gnome-search-bar {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.gnome-search-bar i { color: #aaa; }
+.gnome-search-bar input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    flex: 1;
+}
+
+.gnome-app-scroll-area {
+    width: 100%;
+    max-width: 1000px;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    /* Hide scrollbar for cleaner look */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+.gnome-app-scroll-area::-webkit-scrollbar {
+    width: 6px;
+}
+.gnome-app-scroll-area::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.gnome-app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 30px;
+    width: 100%;
+    justify-items: center;
+    padding-bottom: 40px;
+}
+
+.overlay-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-decoration: none;
+}
+.overlay-app:hover { transform: scale(1.1); }
+.overlay-app .icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.overlay-app span { font-size: 13px; text-align: center;}
+
+/* Ubuntu Calendar Dropdown */
+.ubuntu-calendar-dropdown {
+    position: absolute;
+    top: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    width: 280px;
+    color: white;
+    z-index: 200;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    animation: fadeInSlideDown 0.2s ease-out forwards;
+}
+
+@keyframes fadeInSlideDown {
+    from { opacity: 0; transform: translate(-50%, -10px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.calendar-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #e95420;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+}
+
+.day-name {
+    font-size: 12px;
+    color: #aaa;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.calendar-day {
+    padding: 8px 0;
+    font-size: 13px;
+    border-radius: 50%;
+    cursor: default;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+}
+
+.calendar-day:not(.empty):hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.calendar-day.today {
+    background: #e95420;
+    color: white;
+    font-weight: bold;
+}
